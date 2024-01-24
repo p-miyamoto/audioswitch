@@ -94,7 +94,7 @@ publishing {
             pom {
                 name = 'Audioswitch'
                 description = 'An Android audio management library for real-time communication apps.'
-                url = 'https://github.com/twilio/audioswitch'
+                url = 'https://github.com/p-miyamoto/audioswitch'
                 licenses {
                     license {
                         name = 'Apache 2.0'
@@ -127,8 +127,4 @@ publishing {
             }
         }
     }
-}
-
-signing {
-    sign publishing.publications
 }
