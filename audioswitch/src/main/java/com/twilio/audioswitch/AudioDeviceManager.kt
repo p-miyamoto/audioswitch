@@ -102,6 +102,22 @@ internal class AudioDeviceManager(
         audioManager.isMicrophoneMute = mute
     }
 
+    /**
+     * 再生をミュートする
+     */
+    fun soundMute(mute: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if(mute){
+                audioManager.adjustStreamVolume(AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_MUTE, 0);
+            } else {
+                audioManager.adjustStreamVolume(AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_UNMUTE, 0);
+            }
+
+        } else {
+            audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, mute);
+        }
+    }
+
     // TODO Consider persisting audio state in the event of process death
     fun cacheAudioState() {
         savedAudioMode = audioManager.mode

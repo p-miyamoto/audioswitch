@@ -364,6 +364,28 @@ class AudioSwitch {
         audioDeviceChangeListener = null
     }
 
+
+    /**
+     * Bluetoothイヤホンの状態を変更する
+     */
+    fun setEnabled(enabled: Boolean, isBluetooth: Boolean) {
+        if(enabled){
+            if(isBluetooth){
+                //bluetoothを利用する
+                bluetoothHeadsetManager?.activate()
+            }
+            //再生音を再生する
+            audioDeviceManager.soundMute(false)
+        } else {
+            //再生音を消音にする
+            audioDeviceManager.soundMute(true)
+            if(isBluetooth){
+                //Bluetoothを開放する
+                bluetoothHeadsetManager?.deactivate()
+            }
+        }
+    }
+
     companion object {
         /**
          * The version of the AudioSwitch library.
