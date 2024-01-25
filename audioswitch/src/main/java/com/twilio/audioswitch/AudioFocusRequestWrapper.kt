@@ -18,6 +18,8 @@ internal class AudioFocusRequestWrapper {
                 .setAudioAttributes(playbackAttributes)
                 .setAcceptsDelayedFocusGain(true)
                 .setOnAudioFocusChangeListener(audioFocusChangeListener)
+                .setWillPauseWhenDucked(true)
+                .setForceDucking(false)
                 .build()
     }
 }
