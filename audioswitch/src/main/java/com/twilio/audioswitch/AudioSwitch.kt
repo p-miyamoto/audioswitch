@@ -386,6 +386,14 @@ class AudioSwitch {
         }
     }
 
+    /**
+     * Bluetoothをアクティブしなおす
+     */
+    fun resetBluetoothScoJob(){
+        bluetoothHeadsetManager?.deactivate()
+        bluetoothHeadsetManager?.activate()
+    }
+
     companion object {
         /**
          * The version of the AudioSwitch library.

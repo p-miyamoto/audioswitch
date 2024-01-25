@@ -12,6 +12,7 @@ import com.twilio.audioswitch.android.BuildWrapper
 import com.twilio.audioswitch.android.Logger
 
 private const val TAG = "AudioDeviceManager"
+private const val NEXTAG = "NEXAudioDeviceManager"
 
 internal class AudioDeviceManager(
     private val context: Context,
@@ -108,8 +109,10 @@ internal class AudioDeviceManager(
     fun soundMute(mute: Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if(mute){
+                logger.d(NEXTAG, "soundMute ON")
                 audioManager.adjustStreamVolume(AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_MUTE, 0);
             } else {
+                logger.d(NEXTAG, "soundMute OFF")
                 audioManager.adjustStreamVolume(AudioManager.STREAM_VOICE_CALL, AudioManager.ADJUST_UNMUTE, 0);
             }
 
