@@ -376,6 +376,7 @@ class AudioSwitch {
      * Bluetoothをアクティベートする
      */
     fun deactivateBluetoothScoJob(){
+        audioDeviceManager.enableSpeakerphone(true)
         bluetoothHeadsetManager?.deactivate()
     }
 

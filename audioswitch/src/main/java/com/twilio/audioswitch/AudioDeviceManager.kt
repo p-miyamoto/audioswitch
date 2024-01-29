@@ -76,7 +76,15 @@ internal class AudioDeviceManager(
     }
 
     fun enableBluetoothSco(enable: Boolean) {
-        audioManager.run { if (enable) startBluetoothSco() else stopBluetoothSco() }
+        audioManager.run {
+            if (enable){
+                startBluetoothSco()
+                isBluetoothScoOn = true
+            } else {
+                isBluetoothScoOn = false
+                stopBluetoothSco()
+            }
+        }
     }
 
     @SuppressLint("NewApi")
